@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
+            $table->enum('scope', ['public', 'private']);
             $table->string('title');
             $table->string('content');
             $table->timestamps();

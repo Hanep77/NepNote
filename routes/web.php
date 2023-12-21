@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NoteController::class, 'index']);
+Route::get('/create', [NoteController::class, 'create']);
+Route::get('/note/{note:id}', [NoteController::class, 'create']);

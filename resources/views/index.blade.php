@@ -49,47 +49,24 @@
 
         <div class="d-flex gap-1 my-2">
             <div class="w-50 d-flex flex-column gap-1">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+                @for ($i = 0; $i < count($notes); $i += 2)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $notes[$i]->title }}</h5>
+                            <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
+                @endfor
             </div>
             <div class="w-50 d-flex flex-column gap-1">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, accusamus!</p>
+                @for ($i = 1; $i < count($notes); $i += 2)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $notes[$i]->title }}</h5>
+                            <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum fuga aliquam,
-                            reprehenderit maiores quia quod accusamus nulla est? Suscipit, nostrum?</p>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
     </main>
