@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'username',
         'password',
     ];
 
@@ -46,7 +46,8 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
-    public function notes(): HasMany {
+    public function notes(): HasMany
+    {
         return $this->hasMany(Note::class, 'user_id', 'id');
     }
 }

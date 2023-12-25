@@ -2,7 +2,14 @@
 
 @section('container')
     <main class="container mx-auto" style="max-width: 600px; margin-bottom: 64px;">
-        <h3 class="my-3">Yudis Sutisna</h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="my-3 w-75">Yudis Sutisna</h3>
+            <form action="/logout" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>
+        </div>
 
         <div class="input-group mb-3 max-w">
             <input type="text" class="form-control bg-body-secondary" placeholder="Recipient's username"
@@ -10,7 +17,7 @@
             <button class="btn btn-primary" type="button" id="button-addon2">Button</button>
         </div>
 
-        <div class="overflow-x-auto">
+        {{-- <div class="overflow-x-auto">
             <div style="width: 620px;" class="d-flex gap-2 pb-1">
                 <div class="bg-primary text-white d-flex flex-column justify-content-center align-items-center rounded"
                     style="width: 150px; height: 120px">
@@ -45,7 +52,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="d-flex gap-1 my-2">
             <div class="w-50 d-flex flex-column gap-1">
