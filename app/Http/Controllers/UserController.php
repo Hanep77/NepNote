@@ -27,7 +27,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/' . auth()->user()->slug);
         }
 
         return back()->with(["error" => "Username or Password is Incorrect!"]);

@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/', [NoteController::class, 'index']);
+    Route::get('/notes/{note:id}', [NoteController::class, 'show']);
     Route::get('/create', [NoteController::class, 'create']);
-    Route::get('/note/{note:id}', [NoteController::class, 'create']);
+    Route::post('/store', [NoteController::class, 'store']);
 
     Route::delete('/logout', [UserController::class, 'logout']);
 });

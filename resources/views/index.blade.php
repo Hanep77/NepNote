@@ -11,7 +11,7 @@
             </form>
         </div>
 
-        <div class="input-group mb-3 max-w">
+        <div class="input-group mb-3 max-w border border-dark-subtle rounded">
             <input type="text" class="form-control bg-body-secondary" placeholder="Recipient's username"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-primary" type="button" id="button-addon2">Button</button>
@@ -54,27 +54,40 @@
             </div>
         </div> --}}
 
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{ session()->get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="d-flex gap-1 my-2">
             <div class="w-50 d-flex flex-column gap-1">
                 @for ($i = 0; $i < count($notes); $i += 2)
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $notes[$i]->title }}</h5>
-                            <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                    <a href="/notes/{{ $notes[$i]->id }}" class="link">
+                        <div class="card bg-body-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $notes[$i]->title }}</h5>
+                                <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endfor
             </div>
             <div class="w-50 d-flex flex-column gap-1">
                 @for ($i = 1; $i < count($notes); $i += 2)
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $notes[$i]->title }}</h5>
-                            <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                    <a href="/notes/{{ $notes[$i]->id }}" class="link">
+                        <div class="card bg-body-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $notes[$i]->title }}</h5>
+                                <p class="card-text">{{ $notes[$i]->excerpt }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endfor
             </div>
         </div>
     </main>
 @endsection
+
+@include('layouts.navigation')

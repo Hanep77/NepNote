@@ -32,6 +32,6 @@ class Note extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

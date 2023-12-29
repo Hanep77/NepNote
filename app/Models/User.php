@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Note::class, 'user_id', 'id');
     }
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class, 'user_id', 'id');
+    }
 }

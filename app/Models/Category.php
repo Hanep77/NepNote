@@ -14,7 +14,8 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
-    public function notes(): HasMany {
+    public function notes(): HasMany
+    {
         return $this->hasMany(Note::class, 'category_id', 'id');
     }
 }
