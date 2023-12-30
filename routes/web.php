@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/notes/{note:id}', [NoteController::class, 'show']);
     Route::get('/create', [NoteController::class, 'create']);
     Route::post('/store', [NoteController::class, 'store']);
+    Route::get('/edit/{note:id}', [NoteController::class, 'edit']);
+    Route::patch('/update/{note:id}', [NoteController::class, 'update']);
+    Route::delete('/delete/{note:id}', [NoteController::class, 'destroy']);
 
     Route::delete('/logout', [UserController::class, 'logout']);
 });

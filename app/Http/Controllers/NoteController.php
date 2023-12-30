@@ -56,4 +56,28 @@ class NoteController extends Controller
             "note" => $note
         ]);
     }
+
+    public function update(Request $request, Note $note)
+    {
+        $validated = $request->validate([
+            "title" => "required|max:255",
+            "content" => "required"
+        ]);
+
+        if ($request->category_id == "Choose Category") {
+            $validated["category_id"] = null;
+        } else {
+            $validated["category_id"] = $request->category_id;
+        }
+
+        $note->update($validated);
+
+        return redirect('/notes/' . $note->id)->with('success', 'The note was updated successfully');
+    }
+
+    public function destroy(Note $note)
+    {
+        $note->delete();
+        return redirect('/')->with('success', 'the note was deleted successfully');
+    }
 }
