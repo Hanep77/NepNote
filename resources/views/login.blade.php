@@ -41,6 +41,7 @@
                 </label>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+            <small>Don't have account yet? <a href="/register" class="text-primary">register now</a></small>
         </form>
     </main>
 

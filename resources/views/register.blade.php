@@ -46,6 +46,7 @@
                 @enderror
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+            <small>Already have account? <a href="/login" class="text-primary">login</a></small>
         </form>
     </main>
 
