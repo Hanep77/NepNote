@@ -9,7 +9,7 @@
         <div class="card bg-body-secondary">
             <div class="card-body">
                 <h5 class="card-title">{{ $note->title }}</h5>
-                <div class="card-text">{{ $note->content }}</div>
+                <div class="card-text">{!! $note->content !!}</div>
             </div>
         </div>
     </main>

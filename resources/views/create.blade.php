@@ -1,12 +1,34 @@
-@extends('layouts.main')
+<!doctype html>
+<html lang="en">
 
-@section('container')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <style>
+        trix-toolbar {
+            display: none;
+        }
+
+        trix-editor {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-subtle">
     <main class="container mx-auto" style="max-width: 600px; margin-bottom: 64px;">
         <h3 class="my-3 w-75">Create Note</h3>
         <form action="/store" method="post">
             @csrf
             <div class="input-group mb-3">
-                <select class="form-select bg-body-secondary border-dark-subtle" name="category_id" id="inputGroupSelect01">
+                <select class="form-select bg-body-secondary border-dark-subtle" name="category_id"
+                    id="inputGroupSelect01">
                     <option>Choose Category</option>
                     @foreach (auth()->user()->categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -20,14 +42,22 @@
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <textarea class="form-control bg-body-secondary border-dark-subtle" id="content" name="content" rows="10"
-                    required></textarea>
+                <div id="blank-toolbar" hidden></div>
+                <input id="x" type="hidden" name="content">
+                <trix-editor toolbar="blank-toolbar" input="x" class="bg-body-secondary rounded"></trix-editor>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-success">Save</button>
             </div>
         </form>
     </main>
-@endsection
 
-@include('layouts.navigation')
+    @include('layouts.navigation')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="/js/create.js"></script>
+</body>
+
+</html>
