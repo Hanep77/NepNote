@@ -1,7 +1,7 @@
 <div class="mx-auto bg-primary d-flex justify-content-evenly align-items-center text-white fs-4 rounded-top position-fixed bottom-0 start-0 end-0 z-3"
     style="max-width: 600px; height: 56px">
-    <div><a class="text-white" href="/categories/create">
-            @if ($title == 'Category')
+    <div><a class="text-white" href="/categories">
+            @if ($title == 'Categories')
                 <i class="bi bi-bookmarks-fill"></i>
             @else
                 <i class="bi bi-bookmarks"></i>

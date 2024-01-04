@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/{note:id}', [NoteController::class, 'edit']);
     Route::patch('/update/{note:id}', [NoteController::class, 'update']);
     Route::delete('/delete/{note:id}', [NoteController::class, 'destroy']);
+
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/create', [CategoryController::class, 'create']);
+    Route::post('/categories/store', [CategoryController::class, 'store']);
+    Route::delete('/categories/delete/{category:id}', [CategoryController::class, 'destroy']);
 
     Route::delete('/logout', [UserController::class, 'logout']);
 });

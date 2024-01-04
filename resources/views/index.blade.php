@@ -2,14 +2,14 @@
 
 @section('container')
     <main class="container mx-auto" style="max-width: 600px; margin-bottom: 64px;">
-        <div class="d-flex justify-content-between align-items-center">
-            <h3 class="my-3 w-75">Yudis Sutisna</h3>
-            <form action="/logout" method="post">
+        <form action="/logout" method="post" class="mb-0">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="my-3 w-75">Yudis Sutisna</h3>
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-outline-danger">Logout</button>
-            </form>
-        </div>
+            </div>
+        </form>
 
         <div class="input-group mb-3 max-w border border-dark-subtle rounded">
             <input type="text" class="form-control bg-body-secondary" placeholder="Recipient's username"
